@@ -1,0 +1,103 @@
+{
+  "he_thong": "Trang bán hàng nhỏ (mini e-commerce) phục vụ khách mua lẻ, gồm trình duyệt người mua, máy chủ ứng dụng Flask và cơ sở dữ liệu PostgreSQL.",
+  "thanh_phan": [
+    {
+      "ten": "Trình duyệt người mua",
+      "vai_tro": "Giao diện khách hàng duyệt sản phẩm, thêm vào giỏ, đặt hàng và thanh toán qua HTTPS."
+    },
+    {
+      "ten": "Máy chủ ứng dụng Flask",
+      "vai_tro": "Xử lý nghiệp vụ, xác thực người dùng, gọi cơ sở dữ liệu và trả về HTML hoặc JSON."
+    },
+    {
+      "ten": "Cơ sở dữ liệu PostgreSQL",
+      "vai_tro": "Lưu trữ tài khoản người dùng, sản phẩm, đơn hàng và thông tin thanh toán."
+    }
+  ],
+  "moi_de_doa": [
+    {
+      "ma": "M01",
+      "phat_bieu": "Một người dùng ẩn danh chèn được câu lệnh SQL vào ô tìm kiếm sản phẩm nếu máy chủ Flask nối chuỗi truy vấn trực tiếp mà không dùng tham số hóa.",
+      "nguyen_ly": 2,
+      "attack": "T1190",
+      "tac_dong": 5,
+      "kha_nang": 4
+    },
+    {
+      "ma": "M02",
+      "phat_bieu": "Một người mua đã đăng nhập đọc được đơn hàng của người mua khác nếu máy chủ Flask không kiểm tra mã người dùng trên từng truy vấn đơn hàng.",
+      "nguyen_ly": 2,
+      "attack": "T1078",
+      "tac_dong": 5,
+      "kha_nang": 4
+    },
+    {
+      "ma": "M03",
+      "phat_bieu": "Một người mua sửa được trường vai trò trong cookie phiên thành admin nếu máy chủ Flask không ký và kiểm tra tính toàn vẹn của cookie.",
+      "nguyen_ly": 5,
+      "attack": "T1548",
+      "tac_dong": 5,
+      "kha_nang": 4
+    },
+    {
+      "ma": "M04",
+      "phat_bieu": "Kẻ tấn công đoán được mật khẩu tài khoản khách hàng nếu máy chủ Flask không giới hạn số lần đăng nhập sai trong một khoảng thời gian.",
+      "nguyen_ly": 1,
+      "attack": "T1110",
+      "tac_dong": 3,
+      "kha_nang": 5
+    },
+    {
+      "ma": "M05",
+      "phat_bieu": "Kẻ tấn công chèn được mã JavaScript vào phần đánh giá sản phẩm nếu máy chủ Flask hiển thị lại nội dung người dùng nhập mà không escape HTML.",
+      "nguyen_ly": 4,
+      "attack": "T1059.007",
+      "tac_dong": 4,
+      "kha_nang": 3
+    },
+    {
+      "ma": "M06",
+      "phat_bieu": "Kẻ tấn công đọc được số thẻ tín dụng trong tệp log nếu máy chủ Flask ghi toàn bộ tham số yêu cầu thanh toán mà không che thông tin nhạy cảm.",
+      "nguyen_ly": 7,
+      "attack": "T1552",
+      "tac_dong": 5,
+      "kha_nang": 3
+    },
+    {
+      "ma": "M07",
+      "phat_bieu": "Một trang web độc hại ép được trình duyệt người mua gửi yêu cầu đặt hàng nếu máy chủ Flask không kiểm tra token CSRF trên form đặt hàng.",
+      "nguyen_ly": 6,
+      "attack": "T1204",
+      "tac_dong": 3,
+      "kha_nang": 4
+    },
+    {
+      "ma": "M08",
+      "phat_bieu": "Kẻ tấn công làm cạn kiệt tài nguyên máy chủ Flask nếu API thanh toán không giới hạn tần suất yêu cầu từ một địa chỉ IP.",
+      "nguyen_ly": 3,
+      "attack": "T1499",
+      "tac_dong": 4,
+      "kha_nang": 3
+    }
+  ],
+  "chon_xu_ly": [
+    {
+      "ma": "M01",
+      "chi_phi": 8,
+      "don_vi": "giờ người",
+      "can_cu": "Ước lượng dựa trên việc rà soát toàn bộ endpoint Flask và chuyển các truy vấn nối chuỗi sang tham số hóa, khoảng 8 giờ cho một lập trình viên."
+    },
+    {
+      "ma": "M02",
+      "chi_phi": 6,
+      "don_vi": "giờ người",
+      "can_cu": "Ước lượng dựa trên việc thêm kiểm tra mã người dùng vào các truy vấn đơn hàng và viết test hồi quy, khoảng 6 giờ cho một lập trình viên."
+    },
+    {
+      "ma": "M03",
+      "chi_phi": 4,
+      "don_vi": "giờ người",
+      "can_cu": "Ước lượng dựa trên việc chuyển cookie phiên sang cookie có ký HMAC và kiểm tra chữ ký ở middleware, khoảng 4 giờ cho một lập trình viên."
+    }
+  ]
+}
